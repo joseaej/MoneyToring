@@ -7,9 +7,14 @@ environment:
   sdk: ^3.6.1
 
 dependencies:
+  firebase_auth: ^5.5.4
+  firebase_core: ^3.13.1
   flutter:
     sdk: flutter
   flutter_launcher_icons: ^0.14.3
+  flutter_svg: ^2.1.0
+  introduction_screen: ^3.1.17
+  sizer: ^3.0.5
 
 dev_dependencies:
   flutter_test:
@@ -24,4 +29,6 @@ flutter_launcher_icons:
 flutter:
   uses-material-design: true
   assets:
-    - assets/icon/moneytoring_icon_nobg.png
+    - assets/
+    - assets/onboarding/
+    - assets/icon/
