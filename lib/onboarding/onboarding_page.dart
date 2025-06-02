@@ -8,7 +8,7 @@ class OnBoardingPage extends StatelessWidget {
   const OnBoardingPage({super.key});
 
   void _onIntroEnd(BuildContext context) {
-    Navigator.of(context).pushReplacementNamed('/login');
+    Navigator.of(context).pushReplacementNamed('/home');
   }
 
   @override
