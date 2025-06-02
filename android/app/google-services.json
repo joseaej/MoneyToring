@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "530516252416",
+    "project_id": "moneytoring-6be03",
+    "storage_bucket": "moneytoring-6be03.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:530516252416:android:9c7fdbd873dd34256d45e5",
+        "android_client_info": {
+          "package_name": "com.example.moneytoring"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGyNusqvOyAKJfQo8x2otQqR_oNePeSFc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
