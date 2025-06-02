@@ -15,30 +15,38 @@ class _LoginPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            OutlineFormWidget(
-              label: "Email",
-              hintText: "Email",
-              prefixIcon: Icon(Icons.email),
+      body: Center(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset(
+                  'assets/icon/moneytoring_icon_nobg.png',
+                  width: 200,
+                ),
+                OutlineFormWidget(
+                  label: "Email",
+                  hintText: "Email",
+                  prefixIcon: Icon(Icons.email),
+                ),
+                OutlineFormWidget(
+                  label: "Usuario",
+                  hintText: "Usuario",
+                  prefixIcon: Icon(Icons.person),
+                ),
+                PasswordOutlineFormWidget(
+                    label: "Contraseña", hintText: "Contraseña"),
+                PasswordOutlineFormWidget(
+                    label: "Confirmar Contraseña",
+                    hintText: "Confirmar Contraseña"),
+                _rowlinea,
+                _rowiconlogin,
+                _createaccount
+              ],
             ),
-            OutlineFormWidget(
-              label: "Usuario",
-              hintText: "Usuario",
-              prefixIcon: Icon(Icons.person),
-            ),
-            PasswordOutlineFormWidget(
-                label: "Contraseña", hintText: "Contraseña"),
-            PasswordOutlineFormWidget(
-                label: "Confirmar Contraseña",
-                hintText: "Confirmar Contraseña"),
-            _rowlinea,
-            _rowiconlogin,
-            _createaccount
-          ],
+          ),
         ),
       ),
     );

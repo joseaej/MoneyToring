@@ -15,22 +15,36 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.fromLTRB(15,0,15,0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            OutlineFormWidget(label: "Email", hintText: "Email",prefixIcon: Icon(Icons.email),),
-            PasswordOutlineFormWidget(label: "Contraseña", hintText: "Contraseña"),
-            _rowlinea,
-            _rowiconlogin,
-            _createaccount
-          ],
+      body: Center(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset(
+                  'assets/icon/moneytoring_icon_nobg.png',
+                  width: 200,
+                ),
+                OutlineFormWidget(
+                  label: "Email",
+                  hintText: "Email",
+                  prefixIcon: Icon(Icons.email),
+                ),
+                PasswordOutlineFormWidget(
+                    label: "Contraseña", hintText: "Contraseña"),
+                _rowlinea,
+                _rowiconlogin,
+                _createaccount
+              ],
+            ),
+          ),
         ),
       ),
     );
   }
-    Padding get _rowlinea => Padding(
+
+  Padding get _rowlinea => Padding(
         padding: const EdgeInsets.fromLTRB(50, 0, 50, 0),
         child: Row(
           children: [
@@ -62,12 +76,7 @@ class _LoginPageState extends State<LoginPage> {
         children: [
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: IconButton(
-              onPressed: () {
-                
-              },
-              icon: Icon(Icons.apple)
-            ),
+            child: IconButton(onPressed: () {}, icon: Icon(Icons.apple)),
           ),
         ],
       );
