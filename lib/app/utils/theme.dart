@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-
-
 const Color ultralightGreen = Color(0xFF6CDB98);
 const Color lightGreen = Color(0xFF4CD583);
 const Color green = Color(0xFF2ECC40);
@@ -31,9 +29,9 @@ const Color grey = Color.fromARGB(161, 175, 175, 175);
 
 // Tema claro
 ThemeData lightTheme = ThemeData(
-  primaryColor: Colors.black,
+  primaryColor: lightPrimary,
   scaffoldBackgroundColor: lightBackground,
-  hintColor: Colors.grey[600],
+  hintColor: grey600,
   primaryColorDark: Colors.blueGrey[700],
   textTheme: TextTheme(
     bodyLarge: TextStyle(color: lightText),
@@ -43,26 +41,24 @@ ThemeData lightTheme = ThemeData(
   appBarTheme: AppBarTheme(
     backgroundColor: Colors.white,
     iconTheme: IconThemeData(color: Colors.black), // ICONOS NEGROS EN LIGHT
-    titleTextStyle:
-        TextStyle(color: lightText, fontSize: 20, fontWeight: FontWeight.bold),
+    titleTextStyle: TextStyle(color: lightText, fontSize: 20, fontWeight: FontWeight.bold),
   ),
   buttonTheme: ButtonThemeData(
-    buttonColor: Colors.black,
+    buttonColor: lightPrimary,
     textTheme: ButtonTextTheme.primary,
   ),
   switchTheme: _switchTheme,
   iconTheme: IconThemeData(color: Colors.black), // ICONOS NORMALES NEGROS
   iconButtonTheme: IconButtonThemeData(
     style: ButtonStyle(
-      foregroundColor:
-          WidgetStateProperty.all(Colors.black), // ICONOS DE BOTONES NEGROS
+      foregroundColor: WidgetStateProperty.all(Colors.black), // ICONOS DE BOTONES NEGROS
     ),
   ),
 );
 
 // Tema oscuro
 ThemeData darkTheme = ThemeData(
-  primaryColor: Colors.white,
+  primaryColor: darkPrimary,
   scaffoldBackgroundColor: backgroundBlack, // Cambio para el fondo oscuro
   hintColor: background,
   primaryColorDark: Colors.white,
@@ -74,45 +70,44 @@ ThemeData darkTheme = ThemeData(
   appBarTheme: AppBarTheme(
     backgroundColor: background,
     iconTheme: IconThemeData(color: Colors.white), // ICONOS BLANCOS EN DARK
-    titleTextStyle:
-        TextStyle(color: darkText, fontSize: 20, fontWeight: FontWeight.bold),
+    titleTextStyle: TextStyle(color: darkText, fontSize: 20, fontWeight: FontWeight.bold),
   ),
   buttonTheme: ButtonThemeData(
-    buttonColor: Colors.white,
+    buttonColor: darkPrimary,
     textTheme: ButtonTextTheme.primary,
   ),
   switchTheme: _switchTheme,
   iconTheme: IconThemeData(color: Colors.white), // ICONOS NORMALES BLANCOS
   iconButtonTheme: IconButtonThemeData(
     style: ButtonStyle(
-      foregroundColor:
-          WidgetStateProperty.all(Colors.white), // ICONOS DE BOTONES BLANCOS
+      foregroundColor: WidgetStateProperty.all(Colors.white), // ICONOS DE BOTONES BLANCOS
     ),
   ),
 );
 
-SwitchThemeData get _switchTheme =>
-    SwitchThemeData(thumbColor: WidgetStateProperty.resolveWith((states) {
-      if (states.contains(WidgetState.selected)) {
-        return Colors.white; // Color del thumb cuando esta activado.
-      }
-      return Colors.grey; // Color del thumb cuando esta desactivado.
-    }), trackColor: WidgetStateProperty.resolveWith((states) {
-      if (states.contains(WidgetState.selected)) {
-        return Colors.blue; // Color del track cuando esta activado.
-      }
-      return Colors.grey[400]; // Color del track cuando esta desactivado.
-    }), thumbIcon: WidgetStateProperty.resolveWith(
-      (states) {
-        if (states.contains(WidgetState.selected)) {
-          return Icon(
-            Icons.dark_mode,
-            color: lightGreen,
-          ); //Icono cuando esta activado
-        }
-        return Icon(
-          Icons.light_mode,
-          color: lightGreen,
-        ); //Icono cuando esta desactivado
-      },
-    ));
+SwitchThemeData get _switchTheme => SwitchThemeData(
+  thumbColor: WidgetStateProperty.resolveWith((states) {
+    if (states.contains(WidgetState.selected)) {
+      return Colors.white; // Color del thumb cuando esta activado.
+    }
+    return Colors.grey; // Color del thumb cuando esta desactivado.
+  }),
+  trackColor: WidgetStateProperty.resolveWith((states) {
+    if (states.contains(WidgetState.selected)) {
+      return Colors.blue; // Color del track cuando esta activado.
+    }
+    return Colors.grey[400]; // Color del track cuando esta desactivado.
+  }),
+  thumbIcon: WidgetStateProperty.resolveWith((states) {
+    if (states.contains(WidgetState.selected)) {
+      return Icon(
+        Icons.dark_mode,
+        color: lightGreen,
+      ); // Icono cuando esta activado
+    }
+    return Icon(
+      Icons.light_mode,
+      color: lightGreen,
+    ); // Icono cuando esta desactivado
+  }),
+);

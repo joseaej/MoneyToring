@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:moneytoring/utils/theme.dart';
+import 'package:moneytoring/app/utils/theme.dart';
+import 'package:moneytoring/domain/providers/settings_provider.dart';
+import 'package:provider/provider.dart';
 
-class OutlineFormWidget extends StatelessWidget {
+class OutlineFormWidget extends StatefulWidget {
   final String label;
   final String hintText;
   final TextEditingController? controller;
@@ -22,16 +24,15 @@ class OutlineFormWidget extends StatelessWidget {
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    final inputTextStyle = const TextStyle(
-      color: darkfont,
-      fontSize: 15,
-    );
+  State<OutlineFormWidget> createState() => _OutlineFormWidgetState();
+}
 
-    final hintTextStyle = TextStyle(
-      color: darkfont,
-      fontSize: 14,
-    );
+class _OutlineFormWidgetState extends State<OutlineFormWidget> {
+
+  late final SettingsProvider _settingsProvider;
+  @override
+  Widget build(BuildContext context) {
+    _settingsProvider = Provider.of<SettingsProvider>(context);
 
     final borderRadius = BorderRadius.circular(16);
 
@@ -53,24 +54,22 @@ class OutlineFormWidget extends StatelessWidget {
             ),
           ),
           child: TextFormField(
-            controller: controller,
-            obscureText: obscureText,
-            validator: validator,
-            style: inputTextStyle,
+            controller: widget.controller,
+            obscureText: widget.obscureText,
+            validator: widget.validator,
             decoration: InputDecoration(
-              labelText: label,
+              labelText: widget.label,
               labelStyle: const TextStyle(
                 color: darkfont,
                 fontWeight: FontWeight.bold,
                 fontSize: 15,
               ),
               floatingLabelBehavior: FloatingLabelBehavior.auto,
-              hintText: hintText,
-              hintStyle: hintTextStyle,
+              hintText: widget.hintText,
               filled: true,
-              fillColor: backgroundLight,
-              prefixIcon: prefixIcon,
-              suffixIcon: suffixIcon,
+              fillColor: _settingsProvider.settings.isDarkTheme?backgroundDark:backgroundLight,
+              prefixIcon: widget.prefixIcon,
+              suffixIcon: widget.suffixIcon,
               contentPadding: const EdgeInsets.symmetric(
                 vertical: 18,
                 horizontal: 18,

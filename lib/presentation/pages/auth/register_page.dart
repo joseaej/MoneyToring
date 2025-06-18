@@ -1,11 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
-import 'package:moneytoring/services/auth_service.dart';
+import 'package:moneytoring/app/services/auth_service.dart';
 
-import '../utils/theme.dart';
-import '../widget/outline_form_widget.dart';
-import '../widget/password_outline_form_widget.dart';
+import '../../../app/utils/theme.dart';
+import '../../widget/outline_form_widget.dart';
+import '../../widget/password_outline_form_widget.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});

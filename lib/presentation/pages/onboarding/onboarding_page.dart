@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:introduction_screen/introduction_screen.dart';
-import 'package:moneytoring/utils/theme.dart';
+import 'package:moneytoring/app/utils/theme.dart';
 import 'package:sizer/sizer.dart';
 
 class OnBoardingPage extends StatelessWidget {

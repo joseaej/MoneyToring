@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:moneytoring/utils/theme.dart';
+import 'package:moneytoring/app/utils/theme.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});

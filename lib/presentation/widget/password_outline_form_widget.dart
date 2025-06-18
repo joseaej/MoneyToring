@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:moneytoring/utils/theme.dart';
+import 'package:moneytoring/app/utils/theme.dart';
+import 'package:moneytoring/domain/providers/settings_provider.dart';
+import 'package:provider/provider.dart';
 
 class PasswordOutlineFormWidget extends StatefulWidget {
   final String label;
@@ -21,23 +23,14 @@ class PasswordOutlineFormWidget extends StatefulWidget {
 
 class _PasswordOutlineFormWidgetState extends State<PasswordOutlineFormWidget> {
   bool _obscureText = true;
-
+  late final SettingsProvider _settingsProvider;
   void _toggleObscureText() {
     setState(() => _obscureText = !_obscureText);
   }
 
   @override
   Widget build(BuildContext context) {
-    final inputTextStyle = const TextStyle(
-      color: darkfont,
-      fontSize: 15,
-    );
-
-    final hintTextStyle = TextStyle(
-      color: darkfont,
-      fontSize: 14,
-    );
-
+    _settingsProvider = Provider.of<SettingsProvider>(context);
     final borderRadius = BorderRadius.circular(16);
 
     OutlineInputBorder buildBorder(Color color, double width) {
@@ -61,7 +54,6 @@ class _PasswordOutlineFormWidgetState extends State<PasswordOutlineFormWidget> {
           controller: widget.controller,
           obscureText: _obscureText,
           validator: widget.validator,
-          style: inputTextStyle,
           decoration: InputDecoration(
             labelText: widget.label,
             labelStyle: const TextStyle(
@@ -71,9 +63,8 @@ class _PasswordOutlineFormWidgetState extends State<PasswordOutlineFormWidget> {
             ),
             floatingLabelBehavior: FloatingLabelBehavior.auto,
             hintText: widget.hintText,
-            hintStyle: hintTextStyle,
             filled: true,
-            fillColor: backgroundLight,
+            fillColor: _settingsProvider.settings.isDarkTheme?backgroundDark:backgroundLight,
             prefixIcon: const Icon(Icons.lock_outline, color: darkfont),
             suffixIcon: IconButton(
               icon: Icon(
