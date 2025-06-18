@@ -1,5 +1,10 @@
-class Settings {
+import 'package:hive/hive.dart';
+
+@HiveType(typeId: 1)
+class Settings extends HiveObject {
+  @HiveField(0)
   bool isDarkTheme = false;
+  @HiveField(1)
   bool isNotificationsOn = false;
 
   Settings(
@@ -10,7 +15,7 @@ class Settings {
     isDarkTheme = false;
     isNotificationsOn = false;
   }
-  Settings.fromMap(Map<String, dynamic> map)
+  Settings.fromMap(Map<dynamic, dynamic> map)
       : isDarkTheme = map['isDarkMode'],
         isNotificationsOn = map['isNotisOn'];
 

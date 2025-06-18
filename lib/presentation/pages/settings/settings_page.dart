@@ -60,6 +60,7 @@ class _SettingsPageState extends State<SettingsPage> {
                     value: settingsProvider.settings.isDarkTheme,
                     onChanged: (value) {
                       settingsProvider.togleTheme();
+                      settingsProvider.saveSettings();
                     },
                     activeColor: font,
                   ),

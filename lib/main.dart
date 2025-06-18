@@ -1,4 +1,6 @@
+
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:moneytoring/presentation/pages/auth/login_page.dart';
 import 'package:moneytoring/presentation/pages/auth/register_page.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -16,6 +18,8 @@ Future<void> main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  await Hive.initFlutter();
+  await Hive.openBox("settings");
   runApp(MainApp());
 }
 
@@ -34,11 +38,14 @@ class MainApp extends StatelessWidget {
           ],
           child: Consumer<SettingsProvider>(
             builder: (context, value, child) {
+              value.getSettings();
               return MaterialApp(
                 debugShowCheckedModeBanner: false,
                 theme: lightTheme,
                 darkTheme: darkTheme,
-                themeMode: (value.settings.isDarkTheme)?ThemeMode.dark:ThemeMode.light,
+                themeMode: (value.settings.isDarkTheme)
+                    ? ThemeMode.dark
+                    : ThemeMode.light,
                 routes: {
                   '/login': (context) => LoginPage(),
                   '/register': (context) => RegisterPage(),

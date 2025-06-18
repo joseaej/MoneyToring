@@ -11,7 +11,7 @@ class HomePage extends StatelessWidget {
         backgroundColor: green,
         elevation: 0,
         title: const Text(
-          'Mi Finanzas',
+          'Mis Finanzas',
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         actions: [
@@ -26,30 +26,37 @@ class HomePage extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             _SummaryCard(),
             const SizedBox(height: 20),
             _SectionTitle('Resumen'),
             const SizedBox(height: 10),
-            _FinanceCard(
-              title: 'Ahorros',
-              amount: '2.300€',
-              icon: Icons.savings,
-              color: green,
-            ),
-            const SizedBox(height: 10),
-            _FinanceCard(
-              title: 'Gastos',
-              amount: '850€',
-              icon: Icons.trending_down,
-              color: Colors.redAccent,
-            ),
-            const SizedBox(height: 10),
-            _FinanceCard(
-              title: 'Meta: Viaje a Japón',
-              amount: '1.000€ / 3.000€',
-              icon: Icons.flag,
-              color: darkGreen,
+            Expanded(
+              child: ListView(
+                children: [
+                  _FinanceCard(
+                    title: 'Ahorros',
+                    amount: '2.300€',
+                    icon: Icons.savings,
+                    color: green,
+                  ),
+                  const SizedBox(height: 10),
+                  _FinanceCard(
+                    title: 'Gastos',
+                    amount: '850€',
+                    icon: Icons.trending_down,
+                    color: Colors.redAccent,
+                  ),
+                  const SizedBox(height: 10),
+                  _FinanceCard(
+                    title: 'Meta: Viaje a Japón',
+                    amount: '1.000€ / 3.000€',
+                    icon: Icons.flag,
+                    color: darkGreen,
+                  ),
+                ],
+              ),
             ),
           ],
         ),
@@ -129,7 +136,7 @@ class _FinanceCard extends StatelessWidget {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
       child: ListTile(
         leading: CircleAvatar(
-          backgroundColor: color,
+          backgroundColor: color.withOpacity(0.1),
           child: Icon(icon, color: color),
         ),
         title: Text(title, style: const TextStyle(fontWeight: FontWeight.bold)),
