@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:moneytoring/models/settings.dart';
+import 'package:moneytoring/domain/models/settings.dart';
 
 void main() {
   group('Settings', () {

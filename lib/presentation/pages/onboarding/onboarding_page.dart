@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:introduction_screen/introduction_screen.dart';
-import 'package:moneytoring/utils/theme.dart';
+import 'package:moneytoring/app/utils/theme.dart';
 import 'package:sizer/sizer.dart';
 
 class OnBoardingPage extends StatelessWidget {
@@ -67,20 +67,20 @@ class OnBoardingPage extends StatelessWidget {
       skip: Text(
         "Saltar",
         style: TextStyle(
-          color: AppColors.green,
+          color: green,
           fontWeight: FontWeight.w500,
           fontSize: 16,
         ),
       ),
       next: Icon(
         Icons.arrow_forward_ios,
-        color: AppColors.green,
+        color: green,
         size: 22,
       ),
       done: Text(
         "¡Empezar!",
         style: TextStyle(
-          color: AppColors.green,
+          color: green,
           fontWeight: FontWeight.bold,
           fontSize: 16,
         ),
@@ -88,13 +88,13 @@ class OnBoardingPage extends StatelessWidget {
       back: Text(
         "Volver!",
         style: TextStyle(
-          color: AppColors.green,
+          color: green,
           fontWeight: FontWeight.bold,
           fontSize: 16,
         ),
       ),
       dotsDecorator: DotsDecorator(
-        activeColor: AppColors.green,
+        activeColor: green,
         color: Colors.grey.shade300,
         size: const Size(8.0, 8.0),
         activeSize: const Size(20.0, 8.0),

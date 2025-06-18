@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:moneytoring/utils/theme.dart';
+import 'package:moneytoring/app/utils/theme.dart';
+import 'package:moneytoring/domain/providers/settings_provider.dart';
+import 'package:provider/provider.dart';
 
-class OutlineFormWidget extends StatelessWidget {
+class OutlineFormWidget extends StatefulWidget {
   final String label;
   final String hintText;
   final TextEditingController? controller;
@@ -22,16 +24,15 @@ class OutlineFormWidget extends StatelessWidget {
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    final inputTextStyle = const TextStyle(
-      color: AppColors.darkfont,
-      fontSize: 15,
-    );
+  State<OutlineFormWidget> createState() => _OutlineFormWidgetState();
+}
 
-    final hintTextStyle = TextStyle(
-      color: AppColors.darkfont,
-      fontSize: 14,
-    );
+class _OutlineFormWidgetState extends State<OutlineFormWidget> {
+
+  late final SettingsProvider _settingsProvider;
+  @override
+  Widget build(BuildContext context) {
+    _settingsProvider = Provider.of<SettingsProvider>(context);
 
     final borderRadius = BorderRadius.circular(16);
 
@@ -47,36 +48,34 @@ class OutlineFormWidget extends StatelessWidget {
         child: Theme(
           data: Theme.of(context).copyWith(
             textSelectionTheme: const TextSelectionThemeData(
-              cursorColor: AppColors.green,
-              selectionColor: AppColors.green,
-              selectionHandleColor: AppColors.green,
+              cursorColor: green,
+              selectionColor: green,
+              selectionHandleColor: green,
             ),
           ),
           child: TextFormField(
-            controller: controller,
-            obscureText: obscureText,
-            validator: validator,
-            style: inputTextStyle,
+            controller: widget.controller,
+            obscureText: widget.obscureText,
+            validator: widget.validator,
             decoration: InputDecoration(
-              labelText: label,
+              labelText: widget.label,
               labelStyle: const TextStyle(
-                color: AppColors.darkfont,
+                color: darkfont,
                 fontWeight: FontWeight.bold,
                 fontSize: 15,
               ),
               floatingLabelBehavior: FloatingLabelBehavior.auto,
-              hintText: hintText,
-              hintStyle: hintTextStyle,
+              hintText: widget.hintText,
               filled: true,
-              fillColor: AppColors.backgroundLight,
-              prefixIcon: prefixIcon,
-              suffixIcon: suffixIcon,
+              fillColor: _settingsProvider.settings.isDarkTheme?backgroundDark:backgroundLight,
+              prefixIcon: widget.prefixIcon,
+              suffixIcon: widget.suffixIcon,
               contentPadding: const EdgeInsets.symmetric(
                 vertical: 18,
                 horizontal: 18,
               ),
-              enabledBorder: buildBorder(AppColors.green, 1.5),
-              focusedBorder: buildBorder(AppColors.darkGreen, 2),
+              enabledBorder: buildBorder(green, 1.5),
+              focusedBorder: buildBorder(darkGreen, 2),
               errorBorder: buildBorder(Colors.redAccent, 1.5),
               focusedErrorBorder: buildBorder(Colors.red, 2),
             ),

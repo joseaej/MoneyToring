@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:moneytoring/utils/theme.dart';
+import 'package:moneytoring/app/utils/theme.dart';
 
 void showLogoutDialog(BuildContext context) {
   showDialog(
@@ -29,7 +29,7 @@ void showLogoutDialog(BuildContext context) {
         OutlinedButton(
           onPressed: () => Navigator.pop(context),
           style: OutlinedButton.styleFrom(
-            foregroundColor: AppColors.darkfont,
+            foregroundColor: darkfont,
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
           ),
           child: const Text('Cancelar'),

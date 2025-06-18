@@ -1,11 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
-import 'package:moneytoring/services/auth_service.dart';
+import 'package:moneytoring/app/services/auth_service.dart';
 
-import '../utils/theme.dart';
-import '../widget/outline_form_widget.dart';
-import '../widget/password_outline_form_widget.dart';
+import '../../../app/utils/theme.dart';
+import '../../widget/outline_form_widget.dart';
+import '../../widget/password_outline_form_widget.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -63,7 +63,7 @@ class _LoginPageState extends State<RegisterPage> {
                       width: double.infinity,
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: AppColors.green,
+                          backgroundColor: green,
                           padding: EdgeInsets.symmetric(vertical: 1.8.h),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),
@@ -104,7 +104,7 @@ class _LoginPageState extends State<RegisterPage> {
           children: [
             Expanded(
               child: Divider(
-                color: AppColors.darkfont,
+                color: darkfont,
                 thickness: 1,
               ),
             ),
@@ -112,12 +112,12 @@ class _LoginPageState extends State<RegisterPage> {
               padding: EdgeInsets.symmetric(horizontal: 2.w),
               child: Text(
                 "o",
-                style: TextStyle(color: AppColors.darkfont),
+                style: TextStyle(color: darkfont),
               ),
             ),
             Expanded(
               child: Divider(
-                color: AppColors.darkfont,
+                color: darkfont,
                 thickness: 1,
               ),
             ),
@@ -140,7 +140,7 @@ class _LoginPageState extends State<RegisterPage> {
         children: [
           Text(
             "Accede con tu cuenta aquí:",
-            style: TextStyle(color: AppColors.darkfont, fontSize: 16.sp),
+            style: TextStyle(color: darkfont, fontSize: 16.sp),
           ),
           TextButton(
             onPressed: () {
@@ -148,7 +148,7 @@ class _LoginPageState extends State<RegisterPage> {
             },
             child: Text(
               "Acceder",
-              style: TextStyle(color: AppColors.green, fontSize: 16.sp),
+              style: TextStyle(color: green, fontSize: 16.sp),
             ),
           ),
         ],

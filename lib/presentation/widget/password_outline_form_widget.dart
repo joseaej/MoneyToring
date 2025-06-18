@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:moneytoring/utils/theme.dart';
+import 'package:moneytoring/app/utils/theme.dart';
+import 'package:moneytoring/domain/providers/settings_provider.dart';
+import 'package:provider/provider.dart';
 
 class PasswordOutlineFormWidget extends StatefulWidget {
   final String label;
@@ -21,23 +23,14 @@ class PasswordOutlineFormWidget extends StatefulWidget {
 
 class _PasswordOutlineFormWidgetState extends State<PasswordOutlineFormWidget> {
   bool _obscureText = true;
-
+  late final SettingsProvider _settingsProvider;
   void _toggleObscureText() {
     setState(() => _obscureText = !_obscureText);
   }
 
   @override
   Widget build(BuildContext context) {
-    final inputTextStyle = const TextStyle(
-      color: AppColors.darkfont,
-      fontSize: 15,
-    );
-
-    final hintTextStyle = TextStyle(
-      color: AppColors.darkfont,
-      fontSize: 14,
-    );
-
+    _settingsProvider = Provider.of<SettingsProvider>(context);
     final borderRadius = BorderRadius.circular(16);
 
     OutlineInputBorder buildBorder(Color color, double width) {
@@ -52,33 +45,31 @@ class _PasswordOutlineFormWidgetState extends State<PasswordOutlineFormWidget> {
       child: Theme(
         data: Theme.of(context).copyWith(
           textSelectionTheme: const TextSelectionThemeData(
-            cursorColor: AppColors.green,
-            selectionColor: AppColors.green,
-            selectionHandleColor: AppColors.green,
+            cursorColor: green,
+            selectionColor: green,
+            selectionHandleColor: green,
           ),
         ),
         child: TextFormField(
           controller: widget.controller,
           obscureText: _obscureText,
           validator: widget.validator,
-          style: inputTextStyle,
           decoration: InputDecoration(
             labelText: widget.label,
             labelStyle: const TextStyle(
-              color: AppColors.darkfont,
+              color: darkfont,
               fontWeight: FontWeight.bold,
               fontSize: 15,
             ),
             floatingLabelBehavior: FloatingLabelBehavior.auto,
             hintText: widget.hintText,
-            hintStyle: hintTextStyle,
             filled: true,
-            fillColor: AppColors.backgroundLight,
-            prefixIcon: const Icon(Icons.lock_outline, color: AppColors.darkfont),
+            fillColor: _settingsProvider.settings.isDarkTheme?backgroundDark:backgroundLight,
+            prefixIcon: const Icon(Icons.lock_outline, color: darkfont),
             suffixIcon: IconButton(
               icon: Icon(
                 _obscureText ? Icons.visibility_off : Icons.visibility,
-                color: AppColors.darkfont,
+                color: darkfont,
               ),
               onPressed: _toggleObscureText,
             ),
@@ -86,8 +77,8 @@ class _PasswordOutlineFormWidgetState extends State<PasswordOutlineFormWidget> {
               vertical: 18,
               horizontal: 18,
             ),
-            enabledBorder: buildBorder(AppColors.green, 1.5),
-            focusedBorder: buildBorder(AppColors.darkGreen, 2),
+            enabledBorder: buildBorder(green, 1.5),
+            focusedBorder: buildBorder(darkGreen, 2),
             errorBorder: buildBorder(Colors.redAccent, 1.5),
             focusedErrorBorder: buildBorder(Colors.red, 2),
           ),
