@@ -66,7 +66,7 @@ class _LoginPageState extends State<LoginPage> {
                   width: double.infinity,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColors.green,
+                      backgroundColor: green,
                       padding: EdgeInsets.symmetric(vertical: 1.8.h),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
@@ -104,14 +104,14 @@ class _LoginPageState extends State<LoginPage> {
         child: Row(
           children: [
             Expanded(
-              child: Divider(color: AppColors.darkfont, thickness: 1),
+              child: Divider(color: darkfont, thickness: 1),
             ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 2.w),
-              child: Text("o", style: TextStyle(color: AppColors.darkfont)),
+              child: Text("o", style: TextStyle(color: darkfont)),
             ),
             Expanded(
-              child: Divider(color: AppColors.darkfont, thickness: 1),
+              child: Divider(color: darkfont, thickness: 1),
             ),
           ],
         ),
@@ -132,7 +132,7 @@ class _LoginPageState extends State<LoginPage> {
         children: [
           Text(
             "Crea tu cuenta aqui:",
-            style: TextStyle(color: AppColors.darkfont, fontSize: 16.sp),
+            style: TextStyle(color: darkfont, fontSize: 16.sp),
           ),
           TextButton(
             onPressed: () {
@@ -140,7 +140,7 @@ class _LoginPageState extends State<LoginPage> {
             },
             child: Text(
               "Registrar",
-              style: TextStyle(color: AppColors.green, fontSize: 16.sp),
+              style: TextStyle(color: green, fontSize: 16.sp),
             ),
           ),
         ],

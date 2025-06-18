@@ -7,9 +7,8 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.backgroundDark,
       appBar: AppBar(
-        backgroundColor: AppColors.green,
+        backgroundColor: green,
         elevation: 0,
         title: const Text(
           'Mi Finanzas',
@@ -36,7 +35,7 @@ class HomePage extends StatelessWidget {
               title: 'Ahorros',
               amount: '2.300€',
               icon: Icons.savings,
-              color: AppColors.green,
+              color: green,
             ),
             const SizedBox(height: 10),
             _FinanceCard(
@@ -50,14 +49,14 @@ class HomePage extends StatelessWidget {
               title: 'Meta: Viaje a Japón',
               amount: '1.000€ / 3.000€',
               icon: Icons.flag,
-              color: AppColors.darkGreen,
+              color: darkGreen,
             ),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {},
-        backgroundColor: AppColors.green,
+        backgroundColor: green,
         icon: const Icon(Icons.add),
         label: const Text('Añadir movimiento'),
       ),
@@ -70,7 +69,7 @@ class _SummaryCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-      color: AppColors.green,
+      color: green,
       elevation: 4,
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 16),
@@ -101,10 +100,10 @@ class _SummaryItem extends StatelessWidget {
             style: const TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
-              color: AppColors.backgroundLight,
+              color: backgroundLight,
             )),
         const SizedBox(height: 4),
-        Text(title, style: const TextStyle(color: AppColors.backgroundLight)),
+        Text(title, style: const TextStyle(color: backgroundLight)),
       ],
     );
   }
@@ -156,7 +155,7 @@ class _SectionTitle extends StatelessWidget {
           style: const TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
-              color: AppColors.darkGreen),
+              color: darkGreen),
         ),
       ],
     );

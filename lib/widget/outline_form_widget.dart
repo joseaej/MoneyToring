@@ -24,12 +24,12 @@ class OutlineFormWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final inputTextStyle = const TextStyle(
-      color: AppColors.darkfont,
+      color: darkfont,
       fontSize: 15,
     );
 
     final hintTextStyle = TextStyle(
-      color: AppColors.darkfont,
+      color: darkfont,
       fontSize: 14,
     );
 
@@ -47,9 +47,9 @@ class OutlineFormWidget extends StatelessWidget {
         child: Theme(
           data: Theme.of(context).copyWith(
             textSelectionTheme: const TextSelectionThemeData(
-              cursorColor: AppColors.green,
-              selectionColor: AppColors.green,
-              selectionHandleColor: AppColors.green,
+              cursorColor: green,
+              selectionColor: green,
+              selectionHandleColor: green,
             ),
           ),
           child: TextFormField(
@@ -60,7 +60,7 @@ class OutlineFormWidget extends StatelessWidget {
             decoration: InputDecoration(
               labelText: label,
               labelStyle: const TextStyle(
-                color: AppColors.darkfont,
+                color: darkfont,
                 fontWeight: FontWeight.bold,
                 fontSize: 15,
               ),
@@ -68,15 +68,15 @@ class OutlineFormWidget extends StatelessWidget {
               hintText: hintText,
               hintStyle: hintTextStyle,
               filled: true,
-              fillColor: AppColors.backgroundLight,
+              fillColor: backgroundLight,
               prefixIcon: prefixIcon,
               suffixIcon: suffixIcon,
               contentPadding: const EdgeInsets.symmetric(
                 vertical: 18,
                 horizontal: 18,
               ),
-              enabledBorder: buildBorder(AppColors.green, 1.5),
-              focusedBorder: buildBorder(AppColors.darkGreen, 2),
+              enabledBorder: buildBorder(green, 1.5),
+              focusedBorder: buildBorder(darkGreen, 2),
               errorBorder: buildBorder(Colors.redAccent, 1.5),
               focusedErrorBorder: buildBorder(Colors.red, 2),
             ),

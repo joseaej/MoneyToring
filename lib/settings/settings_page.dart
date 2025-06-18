@@ -8,9 +8,8 @@ class SettingsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.backgroundLight,
       appBar: AppBar(
-        backgroundColor: AppColors.green,
+        backgroundColor: green,
         title: const Text(
           'Configuración',
           style: TextStyle(color: Colors.white),
@@ -41,7 +40,7 @@ class SettingsPage extends StatelessWidget {
               trailing: Switch.adaptive(
                 value: true,
                 onChanged: (value) {},
-                activeColor: AppColors.green,
+                activeColor: green,
               ),
             ),
             _buildTile(
@@ -81,7 +80,7 @@ class SettingsPage extends StatelessWidget {
           style: const TextStyle(
             fontSize: 17,
             fontWeight: FontWeight.w600,
-            color: AppColors.darkfont,
+            color: darkfont,
           ),
         ),
         const SizedBox(height: 10),
@@ -94,8 +93,8 @@ class SettingsPage extends StatelessWidget {
     required IconData icon,
     required String title,
     Widget? trailing,
-    Color iconColor = AppColors.darkfont,
-    Color textColor = AppColors.darkfont,
+    Color iconColor = darkfont,
+    Color textColor = darkfont,
     VoidCallback? onTap,
   }) {
     return Container(
@@ -118,7 +117,7 @@ class SettingsPage extends StatelessWidget {
         title: Text(title, style: TextStyle(color: textColor)),
         trailing: trailing ?? const Icon(Icons.chevron_right, color: Colors.grey),
         onTap: onTap,
-        splashColor: AppColors.green,
+        splashColor: green,
       ),
     );
   }

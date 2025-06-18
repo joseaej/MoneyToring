@@ -29,12 +29,12 @@ class _PasswordOutlineFormWidgetState extends State<PasswordOutlineFormWidget> {
   @override
   Widget build(BuildContext context) {
     final inputTextStyle = const TextStyle(
-      color: AppColors.darkfont,
+      color: darkfont,
       fontSize: 15,
     );
 
     final hintTextStyle = TextStyle(
-      color: AppColors.darkfont,
+      color: darkfont,
       fontSize: 14,
     );
 
@@ -52,9 +52,9 @@ class _PasswordOutlineFormWidgetState extends State<PasswordOutlineFormWidget> {
       child: Theme(
         data: Theme.of(context).copyWith(
           textSelectionTheme: const TextSelectionThemeData(
-            cursorColor: AppColors.green,
-            selectionColor: AppColors.green,
-            selectionHandleColor: AppColors.green,
+            cursorColor: green,
+            selectionColor: green,
+            selectionHandleColor: green,
           ),
         ),
         child: TextFormField(
@@ -65,7 +65,7 @@ class _PasswordOutlineFormWidgetState extends State<PasswordOutlineFormWidget> {
           decoration: InputDecoration(
             labelText: widget.label,
             labelStyle: const TextStyle(
-              color: AppColors.darkfont,
+              color: darkfont,
               fontWeight: FontWeight.bold,
               fontSize: 15,
             ),
@@ -73,12 +73,12 @@ class _PasswordOutlineFormWidgetState extends State<PasswordOutlineFormWidget> {
             hintText: widget.hintText,
             hintStyle: hintTextStyle,
             filled: true,
-            fillColor: AppColors.backgroundLight,
-            prefixIcon: const Icon(Icons.lock_outline, color: AppColors.darkfont),
+            fillColor: backgroundLight,
+            prefixIcon: const Icon(Icons.lock_outline, color: darkfont),
             suffixIcon: IconButton(
               icon: Icon(
                 _obscureText ? Icons.visibility_off : Icons.visibility,
-                color: AppColors.darkfont,
+                color: darkfont,
               ),
               onPressed: _toggleObscureText,
             ),
@@ -86,8 +86,8 @@ class _PasswordOutlineFormWidgetState extends State<PasswordOutlineFormWidget> {
               vertical: 18,
               horizontal: 18,
             ),
-            enabledBorder: buildBorder(AppColors.green, 1.5),
-            focusedBorder: buildBorder(AppColors.darkGreen, 2),
+            enabledBorder: buildBorder(green, 1.5),
+            focusedBorder: buildBorder(darkGreen, 2),
             errorBorder: buildBorder(Colors.redAccent, 1.5),
             focusedErrorBorder: buildBorder(Colors.red, 2),
           ),
