@@ -1,0 +1,1 @@
+enum FinancialOperation { deposit,withdraw}
